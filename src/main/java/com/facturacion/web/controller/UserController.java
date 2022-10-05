@@ -5,23 +5,27 @@ import com.facturacion.domain.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import sun.tools.jconsole.JConsole;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("")
+    @GetMapping("/all")
     public ResponseEntity<List<UserDTO>> getAll(){
         return  new ResponseEntity<>(usuarioService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public Optional<ResponseEntity<UserDTO>> getOne(@PathVariable("id") Long userId){
+    return usuarioService.getOne(userId)
+            .map(usuario -> new ResponseEntity<>(usuario,HttpStatus.OK));
+    }
 
 }

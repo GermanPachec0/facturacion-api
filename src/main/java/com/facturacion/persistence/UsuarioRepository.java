@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public  class UsuarioRepository implements UserRepository {
@@ -23,4 +24,11 @@ public  class UsuarioRepository implements UserRepository {
         List<Usuario> usuarios = (List<Usuario>) usuarioCrudRepository.findAll();
         return  mapper.toUsers(usuarios);
     }
+    @Override
+    public Optional<UserDTO> getOne(Long userId){
+        Optional<Usuario> usuario = usuarioCrudRepository.findById(userId);
+        return  usuario.map(usuario1 -> mapper.toUser(usuario1));
+    }
+
+
 }

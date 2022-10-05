@@ -1,18 +1,18 @@
 package com.facturacion.domain.dto;
 
 public class UserDTO {
-    private  Integer userId;
+    private  Long userId;
     private String username;
     private  String surname;
     private  String cuit;
     private  String userType;
 
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

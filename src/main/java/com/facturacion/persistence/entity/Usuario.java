@@ -8,7 +8,7 @@ public class Usuario {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name = "id_usuario")
-private Integer idUsuario;
+private Long idUsuario;
 
 private String nombre;
 private String apellido;
@@ -17,11 +17,11 @@ private String cuit;
 private String tipoUsuario;
 
 
-    public Integer getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
