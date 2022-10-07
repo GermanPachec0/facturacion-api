@@ -28,4 +28,11 @@ public class UserController {
             .map(usuario -> new ResponseEntity<>(usuario,HttpStatus.OK));
     }
 
+    @PutMapping("/{id}")
+    public Optional<ResponseEntity<UserDTO>> update(@RequestBody UserDTO user, long id){
+       UserDTO u = usuarioService.update(user,id);
+       return
+
+    }
+
 }

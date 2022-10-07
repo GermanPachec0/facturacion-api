@@ -12,5 +12,5 @@ public interface UserRepository {
 
    Optional<UserDTO> getOne(Long userId);
 
-
+   UserDTO update(UserDTO user, long id);
 }
