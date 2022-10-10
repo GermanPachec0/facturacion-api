@@ -1,5 +1,9 @@
 package com.facturacion.domain.dto;
 
+import org.springframework.http.ResponseEntity;
+
+import java.util.Optional;
+
 public class UserDTO {
     private  Long userId;
     private String username;
@@ -47,4 +51,6 @@ public class UserDTO {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
+
 }

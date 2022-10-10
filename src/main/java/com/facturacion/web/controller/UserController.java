@@ -29,9 +29,8 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public Optional<ResponseEntity<UserDTO>> update(@RequestBody UserDTO user, long id){
-       UserDTO u = usuarioService.update(user,id);
-       return
+    public UserDTO update(@RequestBody UserDTO user, @PathVariable("id")  long userId){
+        return usuarioService.update(user,userId);
 
     }
 

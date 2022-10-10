@@ -18,8 +18,6 @@ public  class UsuarioRepository implements UserRepository {
 
     @Autowired
     UsuarioMapper mapper;
-    @Autowired
-    Usuario usu;
 
     @Override
     public List<UserDTO> getAll(){
@@ -33,8 +31,8 @@ public  class UsuarioRepository implements UserRepository {
     }
 
     @Override
-    public  UserDTO update(UserDTO user, long id){
-        usu = usuarioCrudRepository.findById(id).get();
+    public UserDTO update(UserDTO user, long id){
+        Usuario  usu = usuarioCrudRepository.findById(id).get();
         usu.setNombre(user.getUsername());
         usu.setApellido(user.getSurname());
         usu.setCuit(user.getCuit());
