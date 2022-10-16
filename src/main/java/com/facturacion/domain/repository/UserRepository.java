@@ -13,4 +13,8 @@ public interface UserRepository {
    Optional<UserDTO> getOne(Long userId);
 
    UserDTO update(UserDTO user, long id);
+
+   UserDTO save(UserDTO user);
+
+   Optional<UserDTO>  delete(Long id);
 }

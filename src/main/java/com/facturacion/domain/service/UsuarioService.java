@@ -2,7 +2,6 @@ package com.facturacion.domain.service;
 
 import com.facturacion.domain.dto.UserDTO;
 import com.facturacion.domain.repository.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +22,13 @@ public class UsuarioService {
     }
 
     public  UserDTO update(UserDTO user,Long id){return  userRepository.update(user,id);}
+
+    public  UserDTO save(UserDTO user){
+        return userRepository.save(user);
+    }
+
+    public Optional<UserDTO> delete (Long id){
+        return userRepository.delete(id);
+    }
 
 }

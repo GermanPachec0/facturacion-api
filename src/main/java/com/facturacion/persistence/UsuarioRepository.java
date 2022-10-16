@@ -41,5 +41,18 @@ public  class UsuarioRepository implements UserRepository {
 
     }
 
+    @Override
+    public UserDTO save(UserDTO user) {
+       Usuario usuario = mapper.toUsuario(user);
+       return  mapper.toUser(usuarioCrudRepository.save(usuario));
+    }
+
+    @Override
+    public Optional<UserDTO> delete(Long id) {
+        Optional<UserDTO> usu=  getOne(id);
+        usuarioCrudRepository.deleteById(id);
+        return usu;
+    }
+
 
 }

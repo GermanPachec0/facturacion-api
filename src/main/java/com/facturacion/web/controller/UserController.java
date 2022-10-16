@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/all")
+    @GetMapping("")
     public ResponseEntity<List<UserDTO>> getAll(){
         return  new ResponseEntity<>(usuarioService.getAll(), HttpStatus.OK);
     }
@@ -33,5 +33,20 @@ public class UserController {
         return usuarioService.update(user,userId);
 
     }
+
+    @PostMapping("/save")
+    public  ResponseEntity<UserDTO> save(@RequestBody UserDTO user){
+        return new ResponseEntity<>(usuarioService.save(user),HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Optional<UserDTO>> delete(@PathVariable("id") Long id){
+        return  new ResponseEntity<>(usuarioService.delete(id),HttpStatus.OK);
+
+    }
+
+
+
+
 
 }
